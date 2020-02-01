@@ -7,3 +7,23 @@
 Второй — более сложная реализация без оператора **, предусматривающая использование цикла.
 
 """
+
+
+def my_pow(x, y):
+    res = x
+    y = -1 * y
+    for i in range(y - 1):
+        res = res * x
+        i += 1
+    return 1 / res
+
+
+while True:
+    x = float(input('Enter x:'))
+    y = int(input('Enter y with "-" sigh:'))
+
+    if y < 0:
+        result = my_pow(x, y)
+        print(f'Result is {result}, cheking by ** is {x ** y}')
+    else:
+        print('"y" should be less Zero.')
