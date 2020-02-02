@@ -4,3 +4,13 @@
 Необходимо получить результат вычисления произведения всех элементов списка.
 Подсказка: использовать функцию reduce().
 """
+
+from functools import reduce
+
+
+def multi_2items(a, b):
+    return a * b
+
+
+my_list = [num for num in range(100, 1002, 2)]
+print(reduce(multi_2items, my_list))
