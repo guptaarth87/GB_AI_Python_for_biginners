@@ -12,3 +12,29 @@
 [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 Подсказка: использовать менеджер контекста.
 """
+
+import json
+
+a_profit=0
+company_profit = 0
+dict1 = {}
+result_list = []
+
+with open('data/task7.data', 'r') as f:
+    for line in f:
+        temp_list = line.split()
+        company_profit = float(temp_list[2]) - float(temp_list[3])
+
+        if company_profit > 0:
+            dict1.update({temp_list[0]: company_profit})
+            a_profit+=company_profit
+
+
+result_list.append(dict1)
+result_list.append({'average_profit':a_profit})
+print(result_list)
+
+with open('data/task7.json','w') as f:
+    json.dump(result_list,f)
+
+print('All done.')
