@@ -8,5 +8,34 @@
      Физика:   30(л)    —           10(лаб)
 Физкультура:   —        30(пр)      —
 Пример словаря: {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
-
 """
+
+file_list = []
+
+
+def do_all_things(l):
+    user_dict = {}
+
+    for item in file_list:
+        number = ''
+        sum_number = 0
+        for num, word in enumerate(item):
+            if num != 0:
+                for id_char, char in enumerate(word):
+
+                    if char.isdigit():
+                        number += char
+                    elif char == '(':
+                        sum_number += int(number)
+                        # print(f'sum_number={sum_number}, number={number}')
+                        number = ''
+                        user_dict.update({item[0]: sum_number})
+
+    return user_dict
+
+
+with open('data/task6.data', 'r') as f:
+    for line in f:
+        file_list.append(line.split())
+
+print(do_all_things(file_list))
