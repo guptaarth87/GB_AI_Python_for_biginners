@@ -9,7 +9,7 @@
 
 def my_factorial(n):
     factorial_n=1
-    for i in range(1,n+1):
+    for i in range(1,n+1):              #looping /repeating the below program
             factorial_n*=i
             yield f'{i}!:{factorial_n}'
 
